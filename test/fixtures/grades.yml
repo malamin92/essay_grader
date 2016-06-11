@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  essay_id: 
+  comments: MyText
+  grader: MyString
+
+two:
+  essay_id: 
+  comments: MyText
+  grader: MyString
