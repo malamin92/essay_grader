@@ -31,9 +31,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'pg'
 gem 'slim-rails'
 gem 'materialize-sass'
+gem 'material_icons'
+gem 'devise'
 
 
 group :development, :test do

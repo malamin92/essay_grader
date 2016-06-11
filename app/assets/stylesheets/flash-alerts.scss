@@ -1,0 +1,15 @@
+.alert-danger {
+  @extend .red;
+}
+
+.alert-success{
+  @extend .green;
+}
+
+.alert-caution{
+  @extend .yellow;
+}
+
+.alert-notice {
+  @extend .light-blue;
+}

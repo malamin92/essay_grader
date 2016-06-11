@@ -1,1 +1,14 @@
-Wlcome to the essay grader!
+- if current_user
+  .row
+  .col.s12
+    .card.large
+      .card-image
+        img src="https://static.pexels.com/photos/48126/books-education-school-literature-48126.jpeg"
+        span.card-title Card Title
+      .card-content
+        p
+          | Write a practice essay, with a countdown of the time you have left to complete it. If you do not submit the essay within 30 minute, it will be submitted automatically.
+      .card-action
+        = link_to "Submit a Essay", new_essay_path
+-else
+  = image_tag("https://static.pexels.com/photos/48126/books-education-school-literature-48126.jpeg", class: "jumbotron")

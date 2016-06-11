@@ -1,5 +1,10 @@
+@import "materialize/components/color";
+$primary-color: color("blue", "lighten-2");
 @import "materialize";
 @import "materialize/extras/nouislider";
+@import "material_icons";
+@import "flash-alerts";
+@import "homes";
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

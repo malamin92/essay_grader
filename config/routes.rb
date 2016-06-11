@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :grades do
-    resources :essays
+  devise_for :users
+  resources :essays do
+    resources :grades
   end
 
   root 'homes#show'
