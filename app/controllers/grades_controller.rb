@@ -10,10 +10,13 @@ class GradesController < ApplicationController
   # GET /grades/1
   # GET /grades/1.json
   def show
+    @essay = Essay.find(params[:essay_id])
+    @grade = Grade.find(params[:id])
   end
 
   # GET /grades/new
   def new
+    @essay = Essay.find(params[:essay_id])
     @grade = Grade.new
   end
 
@@ -24,11 +27,15 @@ class GradesController < ApplicationController
   # POST /grades
   # POST /grades.json
   def create
+    @essay = Essay.find(params[:essay_id])
+    @essay.gradded = true
     @grade = Grade.new(grade_params)
+    @grade.essay_id = @essay.id
+
 
     respond_to do |format|
-      if @grade.save
-        format.html { redirect_to @grade, notice: 'Grade was successfully created.' }
+      if @grade.save && @essay.save
+        format.html { redirect_to essay_grade_path(@essay, @grade), notice: 'Grade was successfully created.' }
         format.json { render :show, status: :created, location: @grade }
       else
         format.html { render :new }
@@ -69,6 +76,6 @@ class GradesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grade_params
-      params.require(:grade).permit(:essay_id, :comments, :grader)
+      params.require(:grade).permit(:comments, :grader, :grade)
     end
 end

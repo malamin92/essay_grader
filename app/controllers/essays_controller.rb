@@ -1,15 +1,14 @@
 class EssaysController < ApplicationController
-  before_action :set_essay, only: [:show, :edit, :update, :destroy]
-
   # GET /essays
   # GET /essays.json
   def index
-    @essays = Essay.all
+    @essays = current_user.essays.all
   end
 
   # GET /essays/1
   # GET /essays/1.json
   def show
+    @essay = Essay.find(params[:id])
   end
 
   # GET /essays/new
@@ -25,6 +24,7 @@ class EssaysController < ApplicationController
   # POST /essays.json
   def create
     @essay = Essay.new(essay_params)
+    @essay.user_id = current_user.id
 
     respond_to do |format|
       if @essay.save
@@ -62,11 +62,6 @@ class EssaysController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_essay
-      @essay = Essay.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def essay_params
       params.require(:essay).permit(:body)

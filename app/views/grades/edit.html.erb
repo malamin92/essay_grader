@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @grade %> |
-<%= link_to 'Back', grades_path %>
+<%= link_to 'Show', essay_grade_path(params[:essay_id], @grade) %> |
+<%= link_to 'Back', essay_grades_path %>

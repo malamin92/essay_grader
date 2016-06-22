@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   #relationships
   has_many :essays
+  has_many :comments
 end

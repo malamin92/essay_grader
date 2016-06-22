@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Essay:</strong>
-  <%= @grade.essay %>
+  <strong>Grade:</strong>
+  <%= @grade.grade %>
 </p>
 
 <p>
@@ -15,5 +15,5 @@
   <%= @grade.grader %>
 </p>
 
-<%= link_to 'Edit', edit_grade_path(@grade) %> |
-<%= link_to 'Back', grades_path %>
+<%= link_to "Edit", edit_essay_grade_path(@essay, @grade)  %>
+<%= link_to 'Back', essays_path if current_user.admin %>

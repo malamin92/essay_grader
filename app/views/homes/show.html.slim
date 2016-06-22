@@ -10,5 +10,10 @@
           | Write a practice essay, with a countdown of the time you have left to complete it. If you do not submit the essay within 30 minute, it will be submitted automatically.
       .card-action
         = link_to "Submit a Essay", new_essay_path
+        = link_to "View my Essays", essays_path
 -else
   = image_tag("https://static.pexels.com/photos/48126/books-education-school-literature-48126.jpeg", class: "jumbotron")
+
+-if current_user && current_user.admin == true
+  = link_to "Grade Essays", essays_path
+

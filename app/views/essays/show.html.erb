@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @essay.body %>
+  <h1> Your essay: </h1>
+  <p><%= @essay.body %></p>
 </p>
 
-<%= link_to 'Edit', edit_essay_path(@essay) %> |
 <%= link_to 'Back', essays_path %>
+<br>
+<br>
+
+<% if current_user.admin  %>
+  <%= link_to 'Grade This Essay', new_essay_grade_path(@essay) %>
+<% end %>
