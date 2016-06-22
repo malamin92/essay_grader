@@ -1,5 +1,5 @@
 class AddUserToEssays < ActiveRecord::Migration
   def change
-    add_column :essays, :user, :refernces
+    add_column :essays, :user, :references
   end
 end
