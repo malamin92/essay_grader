@@ -13,9 +13,11 @@
 
 	<div class="field">
 
-		<div class="paper"> <div class="paper-content"><%= f.text_area :body, spellcheck: "false" %></div></div>
+		<div class="paper"> <div class="paper-content"><%= f.text_area :body, spellcheck: "false", disabled: "true", id:"essay-submission-field" %></div></div>
 		<br>
 		<div class="actions center-align">
-			<%= f.submit "Submit Essay", class:"btn center-align" %>
+			<%= button_tag( :class => "btn") do %>
+				Submit for Grading <i class="material-icons right">send</i>
+			<% end %>		
 		</div>
 	<% end %>
