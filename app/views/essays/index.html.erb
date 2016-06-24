@@ -1,21 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Essays</h1>
+<div class="container">
+  <% if @essays.size == 0 %>
+    <h3>You have not submitted any essays.</h3>
+  <% else %>
+    <h1>Your Essays</h1>
 
-<table>
-  <tbody>
-    <% @essays.each do |essay| %>
-      <tr>
-        <td><%= "#{ essay.body[0...40] }..." %></td>
-        <td><%= link_to 'Show', essay %></td>
-        <% if essay.gradded %>
-          <td><%= link_to "Show Grade", essay_grade_path(essay.id, essay.grade.id) %></td>
+    <table>
+      <tbody>
+        <% @essays.each do |essay| %>
+          <tr>
+            <td><%= "#{ essay.body[0...40] }..." %></td>
+            <td><%= link_to 'Show', essay %></td>
+            <% if essay.gradded %>
+              <td><%= link_to "Show Grade", essay_grade_path(essay.id, essay.grade.id) %></td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
 
-<br>
+    <br>
+  <% end %>
 
-<%= link_to 'Submit An Essay', new_essay_path %>
+  <%= link_to new_essay_path do %>
+    <h3>Submit a new essay.</h3>
+  <% end %>
+</div>

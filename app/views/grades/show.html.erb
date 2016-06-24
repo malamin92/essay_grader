@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="container"><p>
   <strong>Grade:</strong>
   <%= @grade.grade %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Comments:</strong>
   <%= @grade.comments %>
-</p>
+  </p>
 
-<p>
+  <p>
   <strong>Grader:</strong>
   <%= @grade.grader %>
-</p>
+  </p>
 
-<%= link_to "Edit", edit_essay_grade_path(@essay, @grade)  %>
-<%= link_to 'Back', essays_path if current_user.admin %>
+  <%= link_to "Edit", edit_essay_grade_path(@essay, @grade)  %>
+  <%= link_to 'Back', essays_path if current_user.admin %>
+</div>

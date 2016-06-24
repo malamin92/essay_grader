@@ -1,4 +1,5 @@
 class EssaysController < ApplicationController
+  before_action :authenticate_user!
   # GET /essays
   # GET /essays.json
   def index
