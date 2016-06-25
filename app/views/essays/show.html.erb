@@ -2,8 +2,7 @@
 
 <div class="container"><p>
   <h3> Your essay: </h3>
-  <p><%= @essay.body %></p>
-  </p>
+  <p> <%= simple_format(@essay.body) %> </p>
 
   <%= link_to 'Back', essays_path %>
   <br>

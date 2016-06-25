@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	</head>
+	<body>
+		<h3> <%= @user.email %> has submitted a new essay.</h3>
+
+		<p>
+			Please submit a grade as soon as possible for this essay.
+		</p>
+		<p>
+			<%= simple_format(@essay.body) %>
+		</p>
+	</body>
+</html>

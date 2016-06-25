@@ -3,7 +3,11 @@ class EssaysController < ApplicationController
   # GET /essays
   # GET /essays.json
   def index
-    @essays = current_user.essays.all
+    if current_user.admin
+      @essays = Essay.is_not_graded
+    else
+      @essays = current_user.essays.all
+    end
   end
 
   # GET /essays/1
@@ -29,7 +33,8 @@ class EssaysController < ApplicationController
 
     respond_to do |format|
       if @essay.save
-        format.html { redirect_to @essay, notice: 'Essay was successfully created.' }
+        EssaySubmissionMailer.essay_submitted_email(current_user, @essay).deliver_now
+        format.html { redirect_to @essay, notice: 'Essay was successfully created, you will receive an e-mail once the essay has been graded!' }
         format.json { render :show, status: :created, location: @essay }
       else
         format.html { render :new }
