@@ -13,9 +13,19 @@
             = link_to "Submit a Essay", new_essay_path
             = link_to "View my Essays", essays_path
 - if !user_signed_in?
-  .jumbotron
-    = image_tag("https://static.pexels.com/photos/48126/books-education-school-literature-48126.jpeg", class: "jumbotron")
+	.parallax-container
+		.parallax
+			= image_tag("https://pixabay.com/get/e836b40d2ef5023ed1534705fb0938c9bd22ffd41db7174993f2c47ea1/cellular-1352613_1920.jpg", class: "jumbotron")
+	.section.white
+	  .row.container
+		h2.header The Argo-Brothers Essay Grader
+		p.grey-text.text-darken-3.lighten-3 Submit an essay and get a grade back. Your essay will be reviewed and graded by an expert. When your essay has been graded, you will be notified and be able to view your grade.
+	.parallax-container
+		.parallax
+			= image_tag("https://images.unsplash.com/uploads/14121985124429dd8eeb5/60431f5b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=3331da07c38bdc42bd28df82285e58bd", class: "jumbotron")
+
 
 -if current_user && current_user.admin == true
-  = link_to "Grade Essays", essays_path
+	.container
+		 = link_to "Grade Essays", essays_path
 
