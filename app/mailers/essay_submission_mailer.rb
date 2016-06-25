@@ -1,0 +1,2 @@
+class EssaySubmissionMailer < ApplicationMailer
+end
