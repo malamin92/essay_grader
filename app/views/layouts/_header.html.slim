@@ -17,7 +17,7 @@ nav
         li
 			= link_to "Sign Out", destroy_user_session_path, method: :delete
 		li
-			= link_to "Edit Account", edit_user_registration_path
+			= link_to current_user.email, edit_user_registration_path
       - else
         li
           = link_to "Sign In", new_user_session_path
@@ -27,7 +27,7 @@ nav
         li
 			= link_to "Sign Out", destroy_user_session_path, method: :delete
 		li
-			= link_to "Edit Account", edit_user_registration_path
+			= link_to current_user.email, edit_user_registration_path
       - else
         li
           = link_to "Sign In", new_user_session_path
