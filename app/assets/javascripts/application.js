@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.turbolinks
 //= require_tree .
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
+//= require jquery.countdown
+//= require turbolinks
 
 $(function(){
     $(".button-collapse").sideNav();

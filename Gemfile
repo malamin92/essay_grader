@@ -36,6 +36,8 @@ gem 'slim-rails'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'devise'
+gem 'jquery-countdown-rails'
+gem 'jquery-turbolinks'
 
 group :production do
   gem 'pg'

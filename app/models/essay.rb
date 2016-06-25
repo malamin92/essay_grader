@@ -4,5 +4,7 @@ class Essay < ActiveRecord::Base
   
   scope :is_graded, -> { where(gradded: true) }
   scope :is_not_graded, -> { where(gradded: !true) }
+
+  validates :body, presence: true;
   
 end
