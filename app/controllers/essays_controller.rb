@@ -30,6 +30,7 @@ class EssaysController < ApplicationController
   def create
     @essay = Essay.new(essay_params)
     @essay.user_id = current_user.id
+    @essay.gradded = false
 
     respond_to do |format|
       if @essay.save

@@ -1,29 +1,55 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <% if @essays.size == 0 %>
-    <h3>You have not submitted any essays.</h3>
-  <% else %>
-    <h1>Your Essays</h1>
+	<% if !current_user.admin %>
+		<% if @essays.size == 0 %>
+			<h3>You have not submitted any essays.</h3>
+			<%= link_to new_essay_path do %>
+				<h5>Submit a new essay.</h5>
+			<% end %>
+		<% else %>
+			<h1>Your Essays</h1>
 
-    <table>
-      <tbody>
-        <% @essays.each do |essay| %>
-          <tr>
-            <td><%= "#{ essay.body[0...40] }..." %></td>
-            <td><%= link_to 'Show', essay %></td>
-            <% if essay.gradded %>
-              <td><%= link_to "Show Grade", essay_grade_path(essay.id, essay.grade.id) %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+			<table>
+				<tbody>
+					<% @essays.each do |essay| %>
+						<tr>
+							<td><%= "#{ essay.body[0...40] }..." %></td>
+							<td><%= link_to 'Show', essay %></td>
+							<% if essay.gradded %>
+								<td><%= link_to "Show Grade", essay_grade_path(essay.id, essay.grade.id) %></td>
+							<% end %>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
 
-    <br>
-  <% end %>
+			<br>
+		<% end %>
+	<% end %>
+	<% if current_user.admin %>
+		<% if @essays.size == 0 %>
+			<h3>You have not submitted any essays.</h3>
+			<%= link_to new_essay_path do %>
+				<h5>Submit a new essay.</h5>
+			<% end %>
+		<% else %>
+			<h1>Ungraded Essays:</h1>
 
-  <%= link_to new_essay_path do %>
-    <h3>Submit a new essay.</h3>
-  <% end %>
+			<table>
+				<tbody>
+					<% @essays.each do |essay| %>
+						<tr>
+							<td><%= "#{ essay.body[0...40] }..." %></td>
+							<td><%= link_to 'Show', essay %></td>
+							<td><%= link_to 'Grade Essay', new_essay_grade_path(essay) %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+
+			<br>
+		<% end %>
+	<% end %>
+
 </div>
